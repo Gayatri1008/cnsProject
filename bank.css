@@ -1,0 +1,49 @@
+body{
+  background-image: url('./Bank_vault4.jpg') ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* z-index: -1; */
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    color:black;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    /* height: 800vh; */
+    align-items: center;
+    justify-content: center;
+}
+
+.size {
+    font-size: 50;
+}
+
+/* #result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#bankList {
+    margin-top: 20px;
+}
+
+.input-container {
+    margin-bottom: 10px;
+} */
+/* .tt{
+   color: aliceblue;
+  
+}
+.input-container {
+
+    color: aliceblue;
+    
+    
+}
+.bl {
+    color: aliceblue;
+}
+.ll {
+
+    color: aliceblue;
+} */

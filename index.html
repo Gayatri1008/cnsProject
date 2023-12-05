@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Message Validator</title>
+    
+    <link rel="stylesheet" href="bank.css">
+</head>
+<body>
+    <div class="conatainer">
+    <h1>Bank Message Validator</h1>
+
+    <div class="input-container">
+        <label for="bankKeyword">Enter Message:</label>
+        <textarea id="bankKeyword" rows="4" cols="50"></textarea>
+    </div>
+
+    <div class="input-container">
+        <label for="mobileNumber">Enter Mobile Number:</label>
+        <input type="text" id="mobileNumber">
+    </div>
+
+    <button onclick="validateMessage()">Validate Message</button>
+</div>
+
+    <div id="result"></div>
+
+    <div id="bankList">
+        <h2>Bank List</h2>
+        <ul>
+            <li><strong>SBI:</strong> 9876543210</li>
+            <li><strong>AXIS:</strong> 9876543211</li>
+            <li><strong>IPPB:</strong> 9876543212</li>
+            <li><strong>MAHABANK:</strong> 9876543213</li>
+            <li><strong>JANTABANK:</strong> 9876543214</li>
+            <li><strong>ICICI:</strong> 9876543215</li>
+        </ul>
+    </div>
+
+    <script>
+        const bankNumbers = {
+            'SBI': '9876543210',
+            'AXIS': '9876543211',
+            'IPPB': '9876543212',
+            'MAHABANK': '9876543213',
+            'JANTABANK': '9876543214',
+            'ICICI': '9876543215'
+        };
+
+        function validateMessage() {
+            const message = document.getElementById('bankKeyword').value.toUpperCase();
+            const mobileNumber = document.getElementById('mobileNumber').value;
+
+            let isValid = false;
+            let bankName = '';
+
+            for (const [bank, number] of Object.entries(bankNumbers)) {
+                if (message.includes(bank) && mobileNumber === number) {
+                    isValid = true;
+                    bankName = bank;
+                    break;
+                }
+            }
+
+            const resultElement = document.getElementById('result');
+            const bankListElement = document.getElementById('bankList');
+
+            if (isValid) {
+                resultElement.innerHTML = `<p>Valid Message</p><p>${bankName}: ${bankNumbers[bankName]}</p>`;
+                resultElement.style.color = 'blue';
+            } else {
+                resultElement.innerText = 'Invalid Message';
+                resultElement.style.color = 'red';
+            }
+
+            // Always show the bank list
+            bankListElement.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
